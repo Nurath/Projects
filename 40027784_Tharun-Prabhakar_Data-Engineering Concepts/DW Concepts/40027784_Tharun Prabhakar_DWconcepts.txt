@@ -1,0 +1,184 @@
+1. Data warehouse is a repository of integrated information that is used for query and analysis purpose. 
+   It consist of different king of data that is heterogeneous data.
+
+
+2. i)object oriented
+   ii)Time variant
+   iii)Non volatile
+   iv)Summarized
+
+
+3. Architecture of Traditional Data warehouse:
+                                             i>OLTP: Online Transaction Processing Database
+                                            ii>Staging
+                                           iii>ETL: Extract,Transformation and Loading
+                                            iv>ODS: Online Data Store
+                                             v>OLAP: Online Access Processing
+
+
+4. OLTP: It stands for online transaction processing database
+         All transactions like insert, update, delete at the customer level takes place here.
+
+
+4.1. Staging: It consists of the process of converting heterogeneous data to homogeneous data.
+              It also involves Data Clensing and Data Mining
+              Data Clensing: Removal of noise in Data or unwanted data.
+              Data Mining: Extracting useful/meaningful info from data.
+
+
+5. ETL: It stands for Extract,Transformation and loading
+        It is the heart of data warehouse
+        It involves modification of Data 
+
+
+6. ODS: It stands for Online Data Store
+        It contains low granular info such as per day data, per week data
+
+ 
+7. OLAP: It stands for Online Access Processing
+         It contains high granular data like monthly, quaterly and yearly data
+         It help in summarizing and implementation of reports
+
+
+8. DataMart: It is a subset of Data Warehouse 
+             It refers to the data in the data warehouse
+             It is usually small and mainly focused on subject or department wise
+
+
+9. Building Methodologies: It is how the data warehouses are built
+                          There are 2 types: i)Top-Down Approach- First Data Warehouse and then DataMart
+                                             ii)Bottom-Up Approach- First DataMart and then Data Warehouse
+                          Traditional Data warehouse uses Bottom-Up approach
+
+                          
+10. Data Modelling: It is process of defining the data into entities and attributes
+                   It is done by data or business analyst
+                   There are two types of Modelling: i) ER Modelling (Entity Relation)
+                                                     ii) Dimensional Modelling
+
+
+11. Tables: It is nothing but the detailed information of a department in structured form.
+            Tables contain columns that give us different attributes or features information
+
+
+12.           OLTP                                         OLAP 
+        i)Object oriented                         i)Subject Oriented 
+        ii)Can be updated                         ii)cannot be updated
+        iii)Derived Data                          iii)Summarised Data
+
+
+13.          OLTP                                                    ODS
+       i) Online Tansaction Processing Database          i) Online Data Store
+       ii) Contains heterogenous data                    ii) contains homogeneous data
+       iii) Transaction Data                             iii) contains low granular data like day wise, week wise
+
+
+14.           Data WareHouse                                       DataMart
+        i) It is repository of integrated                 i) It is subset of Data Warehouse 
+           information used for analysis                     reffering to data in Data
+           and query purpose                                 warehouse
+        ii) Contains Multiple Departments                ii) Refers to seperate Deparments in
+                                                             Data Warehouse
+
+15.             Star                                             SnowFlake
+       i) One Fact is connected to multiple              i) Multiple Facts connected to multiple 
+          dimensions                                        dimensions
+       ii) The dimensions are in denormalised            ii) The dimensions are in Normalised
+           form                                              form
+
+
+16.             ER Modelling                                        Dimensional Modelling
+      i) It shows us how Each table is related            i) It has a fact table which is a centralised
+         with others.                                        table that is connected to multiple dimensions 
+                                                             or tables
+      ii) It is time consuming to access different        ii) It is easy to access with the help of  
+          tables                                              Fact table.
+      iii) Generally seen in OLTP                         iii) Generally seen in OLAP
+
+
+17. Dimension: It is used refer tables in Dimensional Modelling.
+               A dimension is a table that is connected to Fact table and contains all the detailed information of department.
+
+
+18. Fact: A fact is centralised or master table in dimensional modelling that has primary keys of other tables or dimensions 
+          and measures as its attributes.
+
+
+19.Types of Dimensions: i> Confirmed Dimensions : Dimensions connected more than 1 fact
+                       ii> Degenerative Dimensions: Values in Fact table that does not belong to any dimension or measure
+                      iii> Slowly Changing Dimension: They change over a period of time.
+                       iv> Junk Dimension: They have junk or temperory values not realted to any dimensions
+
+
+20. SCD: It Stands for Slowly Changing Dimensions
+         It Changes/varies over a period of time
+         There are 3 types of SCD:
+                         i> SCD1 : It contains only the current data and not previous or historical data
+                        ii> SCD2 : It contains current,pevious and historical data
+                                   It has 3 types:
+                                                a) Flagging: It has a new attribute known as flag that contains 0 and 1 as its value
+                                                             with 1 representing current data and 0 for previous and historical data
+                                                             Hence it cannot differentiate between previous and historical data.
+                                                b) Version: It also adds a new column version that increments value and data comes.
+                                                            Hence it can differentiate between previous and historical data.
+                                                c) Date Range: Has start date and end date columns to reference data. The End date 
+                                                               of the previous data is start date of current data
+
+                        iii> SCD3 : Contains only Current and previous data.
+
+
+21. Types of Fact:
+               i> Additive: Fact connected to all dimensions  .
+              ii> Semi- Additive: Fact connected to some and not all dimension.
+             iii> Non- Additive: Fact that is not connected to any dimension.
+              iv> Cumulative: Has Summarised information.
+               v> Snap-Shot: Has a snap that is taken over a period of time.
+
+
+23. Schema: It is a structure that is followed while modelling to arange the date into  required format.
+            There are 3 types of Schema: i> Star Schema:  1 fact, multiple dimensions in denormalised form.
+                                        ii> MultiStar Schema: Multiple fact and dimensions in denormalised form.
+                                       iii> Snowflake Schema: Multiple fact and dimensions in normalised form.
+
+
+24. Historical Data: It is data that is collected and stored over a period of time.
+
+
+25. Surrogate Key : It is a primary key that does not belonging to any dimension.
+
+
+26. Primary Key : Primary keys are attributes that can be used to uniquely identify a table.
+                  They are Not Null and unique values.
+
+
+27. Unique Key: Attribute that contains unique value but unlike primary key can have null values in them.
+
+
+28. OLAP: It stands for Online Access Processing
+          It contains high granular data like monthly, quaterly and yearly data
+          It help in summarizing and implementation of reports
+          There are 3 types of OLAP : ROLAP (Relational)
+                                      MOLAP (Multidimensional)
+                                      HOLAP (Hybrid)
+
+
+29. OLAP Analysis : i> Roll up : Also known as drill up.
+                                 Used to move up the heirarchy.
+                                 ex: From city to state in heirarchy of location
+                   ii> Drill down: Used to move down the heirarchy
+                                   ex: From State to City in heirarchy of location
+                  iii> Drill by: Skips through Heirarchy.
+                                 ex: From Country to City in heirarchy of location
+                   iv> Drill across: Used to move from heirarchy to heirarchy
+                                     ex: From Country in Location to Products in Sales
+                    v> Drill Through: Used to move from report to report
+                   vi> Pivot: Used in rearranging the data or in visualizing it.
+
+
+30. Modern Data Warehouse: Unlike Traditional warehousing it has the ability to store wide range of data even from web applications and
+                           social media. It also has high capability to access and process real time data with low latency. It uses data
+                           lakes that has the data in its original format unless it is required to be accessed providing flexibility.
+                           
+                           Architectures: MPP(Multidimensional parallel processing)
+                                          lamba
+                                          hybrid
